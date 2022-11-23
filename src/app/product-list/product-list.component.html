@@ -1,0 +1,33 @@
+
+<div style="display: flex; justify-content: space-around;">
+
+</div>
+<div style=" width:20%; height:70vh; margin-left: 15%;top:20%; position:absolute;">
+  <ul class="list-group list-group-light">
+    <li class="list-group-item" *ngFor="let category of categories">
+      <div *ngIf="!filterCategory">
+      <input  class="form-check-input me-1" type="checkbox"   (click)="filter(category)"/>
+      {{category}}
+      </div>
+      <div *ngIf="filterCategory">
+        <div *ngIf="filterCategory === category">
+        <input  class="form-check-input me-1" type="checkbox"  checked="true" (click)="filter(category)"/>
+        {{category}}
+        </div>
+        <div *ngIf="filterCategory !== category">
+          <input  class="form-check-input me-1" type="checkbox" (click)="filter(category)"/>
+          {{category}}
+          </div>
+        </div>
+    </li>
+  </ul>
+</div>
+<div style=" width:50%; height:80%; margin:0 auto; position:absolute; left:50%; margin-left:-300px; top : 5%">
+  <mat-grid-list cols="3" rowHeight="3:3" gutterSize="5">
+    <mat-grid-tile *ngFor="let product of products">
+        <app-product [product]="product" ></app-product>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+
