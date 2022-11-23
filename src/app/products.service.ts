@@ -10,7 +10,6 @@ export class ProductsService {
   FilteredProducts : any[] = []
   cart : any[] = []
   filtered : any[] = []
-  categories : any[] = []
   constructor(private client : HttpService) {
     this.client.getProducts().subscribe(p => {
       this.products = p

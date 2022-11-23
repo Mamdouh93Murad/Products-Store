@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, Input  } from '@angular/core';
+import { HttpService } from '../http.service';
 import { ProductsService } from '../products.service';
 @Component({
   selector: 'app-product-list',
@@ -6,9 +7,7 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent  implements OnInit {
-
-  products : any[] = []
-  totalPrice : number = 0
+  products : any [] = []
   categories : string[] = ["smartphones",
   "laptops",
   "fragrances",
@@ -31,24 +30,24 @@ export class ProductListComponent  implements OnInit {
   "lighting"]
   value : string = ''
   filterCategory : string = ''
-  constructor(public productService : ProductsService){
+  constructor(public productService : ProductsService, private client : HttpService, private cdr:ChangeDetectorRef){
+    this.products = this.productService.products['products']
 
   }
 
   ngOnInit() : void {
-    this.retrieve()
   }
 
-  retrieve() : void {
-    this.products = this.productService.products
-    this.products = this.products['products']
-  }
 
   filter(category : string){
-    this.filterCategory = category
-    this.productService.getFiltered(category)
-    this.products = this.productService.FilteredProducts['products']
-
-  }
+    if(category !== 'reset'){
+      this.filterCategory = category
+      this.productService.getFiltered(category)
+      this.products = this.productService.FilteredProducts['products']
+    }
+    else{
+      this.products = this.productService.products['products']
+    }
+    }
 
 }
