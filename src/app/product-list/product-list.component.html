@@ -1,8 +1,37 @@
 
-<div style="display: flex; justify-content: space-around; margin-top:7%;">
+ <h1 style="margin-left:15%; margin-top : 1%">Products</h1>
+<div style="display : flex;  min-height: 85vh; min-width: 20%; gap:1%">
+
+  <div style=" min-width : 20%;  margin-left: 15%;">
+    <ul class="list-group list-group-light" style=" list-style-type: none; padding-left: 20%; padding-top: 25%; padding-right:50px; padding-bottom: 50px;">
+      <li class="list-group-item" *ngFor="let category of categories">
+        <div *ngIf="!filterCategory">
+        <input  class="form-check-input me-1" type="checkbox"   (click)="filter(category)"/>
+        {{category}}
+        </div>
+        <div *ngIf="filterCategory">
+          <div *ngIf="filterCategory === category">
+          <input  class="form-check-input me-1" type="checkbox"  checked="true" (click)="filter(category)"/>
+          {{category}}
+          </div>
+          <div *ngIf="filterCategory !== category">
+            <input  class="form-check-input me-1" type="checkbox" (click)="filter(category)"/>
+            {{category}}
+            </div>
+          </div>
+      </li>
+      <li>
+        <button   style="margin-top: 5%; margin-left: 15%;" (click)="reset()">reset</button>
+      </li>
+    </ul>
+  </div>
+  <div style="min-height : 70vh; min-width : 50%; background-color : green;">
+
+  </div>
+</div>
 
 
-<div style=" width:20%; height:70vh; margin-left: -50%;">
+<!-- <div style=" width:20%; height:70vh; margin-left: -50%;">
   <ul class="list-group list-group-light" style=" list-style-type: none">
     <li class="list-group-item" *ngFor="let category of categories">
       <div *ngIf="!filterCategory">
@@ -24,13 +53,4 @@
       <button mat-flat-button color="primary"  style="margin-top: 5%" (click)="reset()">reset</button>
     </li>
   </ul>
-</div>
-<div style=" width:50%; max-height:80%; margin:0 auto; position:absolute; left:50%; margin-left:-300px; top : 5%">
-  <mat-grid-list cols="3" rowHeight="3:3">
-    <mat-grid-tile *ngFor="let product of products">
-        <app-product [product]="product" ></app-product>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
-
-</div>
+</div> -->

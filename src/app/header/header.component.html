@@ -1,20 +1,20 @@
 <div *ngIf="!this.userService.logged">
-  <mat-nav-list style="display : flex; justify-content: space-around;" >
+  <nav style="display : flex; justify-content: space-around;" >
     <a mat-list-item routerLink="/" style="margin-left : 5%"> Home </a>
     <button mat-flat-button color="primary"  style="margin-right:5%">Login</button>
-  </mat-nav-list>
+  </nav>
 </div>
 
 <div *ngIf="this.userService.logged">
-    <mat-nav-list style="display : flex; justify-content: space-evenly;" >
+    <nav style="display : flex; justify-content: space-evenly;" >
     <div style="display : flex; justify-content : space-evenly; min-width: 30%;">
-        <a mat-list-item routerLink="/products" ><mat-icon style="margin-right:2%">home</mat-icon> Home </a>
-        <a mat-list-item routerLink="/products" ><mat-icon style="margin-right:2%">home</mat-icon> Home </a>
+        <a mat-list-item routerLink="/products" >Home </a>
+        <a mat-list-item routerLink="/products" > Home </a>
     </div>
     <div style="display : flex; justify-content : space-evenly; min-width: 30%; margin-left: 40%;">
         <input matInput placeholder="Search" [(ngModel)]="searchString" style="max-height : 50%; margin-top : 10px; min-width: 50%;">
-        <a mat-list-item routerLink="/cart" style="text-align : center;"> <mat-icon   matBadge='{{total}}' style="margin-right:2%; margin-top: 15px;">add_shopping_cart</mat-icon></a>
+        <a mat-list-item routerLink="/cart" style="text-align : center;">Cart</a>
         <a mat-list-item routerLink="/account" style="text-align : center;">Account </a>
     </div>
-    </mat-nav-list>
+  </nav>
   </div>
