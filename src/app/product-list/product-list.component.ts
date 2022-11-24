@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, Input  } from '@angular/core';
+import { ChildActivationStart } from '@angular/router';
 import { HttpService } from '../http.service';
 import { ProductsService } from '../products.service';
 @Component({
@@ -28,7 +29,7 @@ export class ProductListComponent  implements OnInit {
   "automotive",
   "motorcycle",
   "lighting"]
-  value : string = ''
+
   filterCategory : string = ''
   constructor(public productService : ProductsService, private client : HttpService, private cdr:ChangeDetectorRef){
     this.products = this.productService.products['products']
@@ -36,18 +37,17 @@ export class ProductListComponent  implements OnInit {
   }
 
   ngOnInit() : void {
+
   }
 
+  reset(){
+    this.products = this.productService.products['products']
+  }
 
   filter(category : string){
-    if(category !== 'reset'){
-      this.filterCategory = category
-      this.productService.getFiltered(category)
-      this.products = this.productService.FilteredProducts['products']
-    }
-    else{
-      this.products = this.productService.products['products']
-    }
-    }
-
+    this.filterCategory = category
+     this.client.getFiltered(category).subscribe(f => {
+      this.products = f['products']
+    })
+  }
 }

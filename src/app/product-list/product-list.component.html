@@ -1,8 +1,8 @@
 
-<div style="display: flex; justify-content: space-around;">
+<div style="display: flex; justify-content: space-around; margin-top:7%;">
 
-</div>
-<div style=" width:20%; height:70vh; margin-left: 15%;top:20%; position:absolute;">
+
+<div style=" width:20%; height:70vh; margin-left: -50%;">
   <ul class="list-group list-group-light" style=" list-style-type: none">
     <li class="list-group-item" *ngFor="let category of categories">
       <div *ngIf="!filterCategory">
@@ -21,11 +21,11 @@
         </div>
     </li>
     <li>
-      <button mat-flat-button color="primary"  style="margin-top: 5%" (click)="filter('reset')">reset</button>
+      <button mat-flat-button color="primary"  style="margin-top: 5%" (click)="reset()">reset</button>
     </li>
   </ul>
 </div>
-<div style=" width:50%; height:80%; margin:0 auto; position:absolute; left:50%; margin-left:-300px; top : 5%">
+<div style=" width:50%; max-height:80%; margin:0 auto; position:absolute; left:50%; margin-left:-300px; top : 5%">
   <mat-grid-list cols="3" rowHeight="3:3">
     <mat-grid-tile *ngFor="let product of products">
         <app-product [product]="product" ></app-product>
@@ -33,4 +33,4 @@
   </mat-grid-list>
 </div>
 
-
+</div>

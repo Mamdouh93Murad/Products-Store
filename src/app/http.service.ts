@@ -12,9 +12,14 @@ export class HttpService {
   getUsers() : Observable<any>{
     return this.client.get('https://dummyjson.com/users')
   }
+
+
+
   getProducts() : Observable<any>{
     return this.client.get('https://dummyjson.com/products')
   }
+
+
   getFiltered(name : string) : Observable<any>{
     return this.client.get(`https://dummyjson.com/products/category/${name}`)
   }

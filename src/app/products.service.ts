@@ -7,7 +7,6 @@ import { HttpService } from './http.service';
 })
 export class ProductsService {
   products : any[] = []
-  FilteredProducts : any[] = []
   cart : any[] = []
   filtered : any[] = []
   constructor(private client : HttpService) {
@@ -32,11 +31,5 @@ export class ProductsService {
    removeCart(product : any){
     this.cart = this.cart.filter((p) => p.id !== product.id)
 
-   }
-
-   getFiltered(name : string){
-    this.client.getFiltered(name).subscribe(f => {
-      this.FilteredProducts = f
-    })
    }
 }
