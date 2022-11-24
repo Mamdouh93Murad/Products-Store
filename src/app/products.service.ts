@@ -9,9 +9,11 @@ export class ProductsService {
   products : any[] = []
   cart : any[] = []
   filtered : any[] = []
+  triggered : boolean = false
+  searchString : string = ''
   constructor(private client : HttpService) {
     this.client.getProducts().subscribe(p => {
-      this.products = p
+      this.products = p['products']
    })
  }
 

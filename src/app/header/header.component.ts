@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 import { ProductsService } from '../products.service';
 import { UsersService } from '../users.service';
 @Component({
@@ -9,7 +11,7 @@ import { UsersService } from '../users.service';
 export class HeaderComponent implements OnInit{
   total: number = 0;
   searchString : string = ''
-  constructor(public userService : UsersService, private productService : ProductsService) {
+  constructor(public userService : UsersService, private productService : ProductsService, private client : HttpService) {
   }
   ngOnInit() {
 
@@ -18,5 +20,10 @@ export class HeaderComponent implements OnInit{
   ngDoCheck(){
     this.total = 0;
     this.total = this.productService.cart.length
+  }
+
+  search(){
+    this.productService.searchString = this.searchString
+    this.productService.triggered = true
   }
 }

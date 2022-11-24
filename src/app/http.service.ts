@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {observable, Observable} from 'rxjs'
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpParams} from '@angular/common/http'
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +21,11 @@ export class HttpService {
 
 
   getFiltered(name : string) : Observable<any>{
+
     return this.client.get(`https://dummyjson.com/products/category/${name}`)
+  }
+
+  getSearch(str : string) : Observable<any>{
+    return this.client.get('https://dummyjson.com/products/search?', {params : {'q' : str}})
   }
 }

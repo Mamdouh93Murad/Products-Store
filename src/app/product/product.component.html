@@ -1,28 +1,9 @@
 
+<div class="container">
+<img src="{{product.thumbnail}}" style=" height: 50%; width:100%; object-fit: fill; margin:0 0 0 0; padding:0 0 0 0; max-height: 50%;">
 
-<p>{{product.title}}</p>
-
-
-
-
+</div>
 
 
 
-<!-- <mat-card style="max-width : 33%">
-  <mat-card-title style="text-align: center;">{{product.title}}</mat-card-title>
-  <mat-card-subtitle style="text-align: center;" >{{product.description}}</mat-card-subtitle>
-  <img mat-card-lg-image src={{product.thumbnail}} style="margin:auto">
- <img mat-card-lg-image src={{product.url}} style="margin:auto"  id="list-image-{{product.name}}" (click)="navigate(product.id)">
-  <mat-card-actions style="margin-left: 15%; ">
-    <div *ngIf="!this.inCart">
-      <button mat-flat-button color="primary"    id="list-button-{{product.id}}" (click)="add(product)">Add to Cart</button>
-    </div>
-    <br>
-    <div *ngIf="this.inCart">
-      <button mat-flat-button color="primary"   id="list-button-{{product.id}}" (click)="remove(product)">Remove From Cart</button>
-    </div>
-      <mat-label style="margin-left: 15%;">Amount</mat-label>
 
-  </mat-card-actions>
-  <mat-card-footer style="text-align: center;" id="list-price-{{product.id}}"> {{  (product.price * product.amount)  || 0}}</mat-card-footer>
-</mat-card> -->

@@ -1,5 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, Input  } from '@angular/core';
-import { ChildActivationStart } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
 import { HttpService } from '../http.service';
 import { ProductsService } from '../products.service';
 @Component({
@@ -31,8 +30,8 @@ export class ProductListComponent  implements OnInit {
   "lighting"]
 
   filterCategory : string = ''
-  constructor(public productService : ProductsService, private client : HttpService, private cdr:ChangeDetectorRef){
-    this.products = this.productService.products['products']
+  constructor(public productService : ProductsService, private client : HttpService){
+    this.products = this.productService.products
 
   }
 
@@ -41,7 +40,9 @@ export class ProductListComponent  implements OnInit {
   }
 
   reset(){
-    this.products = this.productService.products['products']
+    this.products = this.productService.products
+    this.filterCategory = ''
+    this.productService.triggered = false
   }
 
   filter(category : string){
@@ -50,4 +51,14 @@ export class ProductListComponent  implements OnInit {
       this.products = f['products']
     })
   }
+  ngDoCheck(){
+    if(this.productService.triggered)
+    {
+      this.client.getSearch(this.productService.searchString).subscribe(f => {
+        this.products = f['products']
+        this.productService.triggered = false
+      })
+
+    }
+    }
 }
