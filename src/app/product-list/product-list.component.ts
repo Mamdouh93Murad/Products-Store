@@ -39,18 +39,22 @@ export class ProductListComponent  implements OnInit {
 
   }
 
+  // Remove any category or search filters and restore original product list
   reset(){
     this.products = this.productService.products
     this.filterCategory = ''
     this.productService.triggered = false
   }
 
+  // Changes Product List to contain only selected category products
   filter(category : string){
     this.filterCategory = category
      this.client.getFiltered(category).subscribe(f => {
       this.products = f['products']
     })
   }
+
+  // Check for Search Trigger to update Product List according to Search Query
   ngDoCheck(){
     if(this.productService.triggered)
     {

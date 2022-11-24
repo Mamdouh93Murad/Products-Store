@@ -17,11 +17,13 @@ export class HeaderComponent implements OnInit{
 
   }
 
+  // Force Change Detection to Update Cart Count Badge
   ngDoCheck(){
     this.total = 0;
     this.total = this.productService.cart.length
   }
 
+  // Initiate Search Process by forcing Service and Component to detect change
   search(){
     this.productService.searchString = this.searchString
     this.productService.triggered = true
