@@ -18,6 +18,7 @@ export class ProductComponent implements OnInit {
   }
 
 
+  // Navigate to Particular Product URL
   navigate(id : any){
     this.router.navigate([`products/${id}`])
 }

@@ -13,9 +13,11 @@ export class CartComponent implements OnInit{
   constructor(private userService : UsersService, private client : HttpService, public productService : ProductsService){
 
   }
+
+  // Retrieve Cart For User using ID
   ngOnInit(): void {
     this.client.getCart(this.userService.user_id).subscribe(c => {
       this.cart = c['carts']
-      this.productService.cart_length = this.cart.length})
+      this.productService.total_cart = this.cart.length})
   }
 }
