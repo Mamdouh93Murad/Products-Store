@@ -52,9 +52,13 @@ export class HttpService {
     .then(data => {
       result = data;
      })
-  .then(() => {
-    console.log(result)})
+  // .then(() => {
+  //   console.log(result)})
   return result
-}
+  }
+
+  getCart(id : string | number) : Observable<any>{
+    return this.client.get(`https://dummyjson.com/users/${id}/carts`)
+  }
 }
 

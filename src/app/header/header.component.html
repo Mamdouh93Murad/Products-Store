@@ -1,8 +1,8 @@
-<div *ngIf="!this.userService.logged">
-  <nav style="display : flex; justify-content: space-around;" >
-    <a mat-list-item routerLink="/" style="margin-left : 5%"> Home </a>
-    <button mat-flat-button color="primary"  style="margin-right:5%">Login</button>
-  </nav>
+<div *ngIf="!this.userService.logged" style="min-height:5vh">
+  <div style="display : flex; justify-content: space-around; margin-top : 1%" >
+    <a  routerLink="/" style="margin-left : 5%" > Home </a>
+    <button   style="margin-right:5%">Login</button>
+  </div>
 </div>
 
 <div *ngIf="this.userService.logged">

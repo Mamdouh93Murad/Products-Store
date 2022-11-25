@@ -4,7 +4,7 @@
     <h2 style="text-align : center">Login to Your account</h2>
     <caption>Welcome back! Please Enter your details</caption>
     <form #Form="ngForm" (ngSubmit)="login()" style="display : flex; flex-direction: column">
-      <label>Email</label>
+      <label>Username</label>
       <input type="text" name="name" #Name="ngModel" required  appForbiddenName="username" placeholder="Username" [(ngModel)]="username" style="text-align : center;">
         <div *ngIf="Name.invalid && Name.dirty" >
           <div *ngIf="Name.errors?.['required']" style="text-align: center;">

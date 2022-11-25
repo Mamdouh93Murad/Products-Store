@@ -4,20 +4,9 @@ import { HttpService } from './http.service';
   providedIn: 'root'
 })
 export class UsersService {
-  users : any[] = []
-  logged : boolean = true
+  user_id : number | string = ''
+  logged : boolean = false
   constructor(private client : HttpService) {
-    this.client.getUsers().subscribe(u => {
-      this.users = u['users']
-   })
-
   }
 
-  returnStatus() : boolean {
-    return this.logged
-  }
-
-  changeStatus() {
-    this.logged = !this.logged
-  }
 }

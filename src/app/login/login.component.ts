@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit{
   result : object = {}
   decoded : object = {}
   helper = new JwtHelperService()
-  constructor( private route : Router,  private client : HttpService){
+  constructor(private userService : UsersService, private route : Router,  private client : HttpService){
 
   }
   ngOnInit() : void {
@@ -26,7 +26,9 @@ export class LoginComponent implements OnInit{
     this.result = await this.client.auth(this.username, this.password)
     this.decoded = (this.helper.decodeToken(this.result['token']))
     if((this.result['username'] === this.decoded['username']) && (this.result['password'] === this.decoded['password'])){
+      this.userService.user_id = this.result['id']
       this.route.navigate(['products'])
+      this.userService.logged = !this.userService.logged
     }
   }
 
