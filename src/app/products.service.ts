@@ -11,20 +11,19 @@ export class ProductsService {
   filtered : any[] = []
   triggered : boolean = false
   searchString : string = ''
+  length : number = 0
   constructor(private client : HttpService) {
-    this.client.getProducts().subscribe(p => {
+    let total : number = 0
+    this.client.getProducts(0).subscribe(p => {
       this.products = p['products']
    })
+   this.client.getAllProducts().subscribe(p => {
+    total = p['total']
+    this.length = Math.round((total / 9) + 1)
+    console.log(this.length)
+ })
  }
 
-
-   getProducts(list : any[]) {
-    this.client.getProducts().subscribe(p => {
-      list = p
-
-   })
-   return list
-   }
 
    addCart(product: any){
     this.cart.push(product)

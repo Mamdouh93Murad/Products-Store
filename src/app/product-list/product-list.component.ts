@@ -28,15 +28,18 @@ export class ProductListComponent  implements OnInit {
   "automotive",
   "motorcycle",
   "lighting"]
-
+  page : number = 1;
   filterCategory : string = ''
+  list : number[] = []
   constructor(public productService : ProductsService, private client : HttpService){
     this.products = this.productService.products
 
   }
 
   ngOnInit() : void {
-
+    for(let i = 1; i <= this.productService.length; i++){
+      this.list.push(i)
+    }
   }
 
   // Remove any category or search filters and restore original product list
@@ -64,5 +67,37 @@ export class ProductListComponent  implements OnInit {
       })
 
     }
+    }
+
+    next(){
+      this.page += 1
+      if(this.page === 1){
+        this.products = this.productService.products
+      }
+      this.client.getProducts(this.page-1).subscribe(f => {
+        this.products = f['products']
+      })
+    }
+
+    goTo(number : number){
+      this.page = number
+      if(this.page === 1){
+        this.products = this.productService.products
+      }
+      this.client.getProducts(this.page-1).subscribe(f => {
+        this.products = f['products']
+      })
+    }
+
+    back(){
+      if(this.page > 1){
+        this.page -= 1
+      }
+      if(this.page === 1){
+        this.products = this.productService.products
+      }
+      this.client.getProducts(this.page-1).subscribe(f => {
+        this.products = f['products']
+      })
     }
 }

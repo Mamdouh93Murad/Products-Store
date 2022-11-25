@@ -2,8 +2,8 @@
  <h1 style="margin-left:15%; margin-top : 1%">Products</h1>
 <div style="display : flex;  min-height: 85vh; min-width: 20%; gap:1%">
 
-  <div style=" min-width : 20%;  margin-left: 15%;">
-    <ul class="list-group list-group-light" style=" list-style-type: none; padding-left: 20%; padding-top: 25%; padding-right:50px; padding-bottom: 50px;">
+  <div style=" min-width : 15%;  margin-left: 15%; margin-top: 2%;" class="container">
+    <ul class="list-group list-group-light" style=" list-style-type: none;  padding-top: 25%; padding-right:50px; padding-bottom: 50px;">
       <li class="list-group-item" *ngFor="let category of categories">
         <div *ngIf="!filterCategory">
         <input  class="form-check-input me-1" type="checkbox"   (click)="filter(category)"/>
@@ -23,12 +23,25 @@
       <li>
         <button   style="margin-top: 5%; margin-left: 15%;" (click)="reset()">reset</button>
       </li>
+
     </ul>
   </div>
-  <div style="min-height : 70vh; min-width : 50%; max-width: 60%; flex-shrink: 0;" class="parent">
+  <div style="min-height : 70vh; min-width : 50%; max-width: 60%; flex-shrink: 0; " class="parent">
     <div *ngFor="let product of products">
     <app-product [product]="product"></app-product>
   </div>
   </div>
 </div>
+
+<ul style="display : flex; list-style-type : none; gap: 1%; margin-left : 35%">
+  <li>
+    <button   style="margin-top: 5%; margin-left: 15%;" (click)="back()" [disabled]="page===1">&#8592;</button>
+  </li>
+  <li *ngFor="let number of list">
+    <button   style="margin-top: 5%; margin-left: 15%;" (click)="goTo(number)" [disabled]="number === this.page">{{number}}</button>
+  </li>
+  <li>
+    <button   style="margin-top: 5%; margin-left: 15%;" (click)="next()" [disabled]="this.page === this.productService.length">&#8594;</button>
+  </li>
+</ul>
 

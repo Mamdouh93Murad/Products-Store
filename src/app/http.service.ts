@@ -15,10 +15,13 @@ export class HttpService {
 
 
 
-  getProducts() : Observable<any>{
-    return this.client.get('https://dummyjson.com/products')
+  getProducts(page : number) : Observable<any>{
+    return this.client.get('https://dummyjson.com/products?',  {params : {'limit' : 9, 'skip' : page * 9}})
   }
 
+  getAllProducts() : Observable<any>{
+    return this.client.get('https://dummyjson.com/products')
+  }
 
   getFiltered(name : string) : Observable<any>{
 
@@ -27,5 +30,9 @@ export class HttpService {
 
   getSearch(str : string) : Observable<any>{
     return this.client.get('https://dummyjson.com/products/search?', {params : {'q' : str}})
+  }
+
+  getProduct(id : string){
+    return this.client.get(`https://dummyjson.com/products/${id}`)
   }
 }

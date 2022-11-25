@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductsService } from '../products.service';
 @Component({
   selector: 'app-product',
@@ -9,7 +10,7 @@ export class ProductComponent implements OnInit {
 
   @Input() product : any
   inCart : boolean = false
-  constructor(private productService : ProductsService){
+  constructor(private productService : ProductsService, private router : Router){
 
   }
 
@@ -27,4 +28,8 @@ export class ProductComponent implements OnInit {
     this.productService.removeCart(p)
     this.inCart = false
   }
+
+  navigate(id : any){
+    this.router.navigate([`products/${id}`])
+}
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-product-details',
@@ -6,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
+  constructor(private route : ActivatedRoute, private client : HttpService){}
+  product : any
+  id : any
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.client.getProduct(this.id).subscribe(f => {
+      this.product = f
+      console.log(this.product)
+    })
 
   }
 
