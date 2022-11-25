@@ -13,6 +13,8 @@ export class ProductDetailsComponent implements OnInit {
   }
   product : any
   id : any
+
+  // Retrieve Particular Product by capturing ID in URL
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.client.getProduct(this.id).subscribe(f => {

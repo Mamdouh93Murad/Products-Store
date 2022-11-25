@@ -41,7 +41,7 @@
     <button   style="margin-top: 5%; margin-left: 15%;" (click)="goTo(number)" [disabled]="number === this.page">{{number}}</button>
   </li>
   <li>
-    <button   style="margin-top: 5%; margin-left: 15%;" (click)="next()" [disabled]="this.page === this.productService.length">&#8594;</button>
+    <button   style="margin-top: 5%; margin-left: 15%;" (click)="next()" [disabled]="this.page === this.productService.pages">&#8594;</button>
   </li>
 </ul>
 

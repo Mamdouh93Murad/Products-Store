@@ -36,7 +36,7 @@ export class ProductListComponent  implements OnInit {
   }
 
   ngOnInit() : void {
-    for(let i = 1; i <= this.productService.length; i++){
+    for(let i = 1; i <= this.productService.pages; i++){
       this.list.push(i)
     }
   }
@@ -67,7 +67,7 @@ export class ProductListComponent  implements OnInit {
 
     }
     }
-
+    // Get Set of Products According to next Pagination Page
     next(){
       this.page += 1
       if(this.page === 1){
@@ -77,7 +77,7 @@ export class ProductListComponent  implements OnInit {
         this.products = f['products']
       })
     }
-
+    // Get Set of Products According to Particular Pagination Page
     goTo(number : number){
       this.page = number
       if(this.page === 1){
@@ -87,7 +87,7 @@ export class ProductListComponent  implements OnInit {
         this.products = f['products']
       })
     }
-
+    // Get Set of Products According to Previous Pagination Page
     back(){
       if(this.page > 1){
         this.page -= 1

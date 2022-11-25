@@ -7,11 +7,16 @@ import { UsersService } from './users.service';
   providedIn: 'root'
 })
 export class ProductsService {
+  // List to Hold Products
   products : any[] = []
-  cart_length : number = 0
+  // Variable Used to Keep Track of Total Items in Cart
+  total_cart : number = 0
+  // Search Trigger to Turn on/off on model change and right after search to prevent infinite loop on DoCheck
   triggered : boolean = false
+  // Search Query
   searchString : string = ''
-  length : number = 0
+  // Pages Required for pagination
+  pages : number = 0
   constructor(private client : HttpService, private userService : UsersService) {
     let total : number = 0
 
@@ -20,8 +25,11 @@ export class ProductsService {
    })
 
    this.client.getAllProducts().subscribe(p => {
+    // Total Items in Product List
     total = p['total']
-    this.length = Math.round((total / 9) + 1)
+    // Calculate number of pages required
+    // Total Number of Products / 9 (page limit) + 1
+    this.pages = Math.round((total / 9) + 1)
  })
 
 }

@@ -9,7 +9,9 @@ import { UsersService } from '../users.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
+  // Variable for Keeping Track of Total Amount of Items in Cart
   total: number = 0;
+  // Search Query
   searchString : string = ''
   constructor(public userService : UsersService, private productService : ProductsService, private client : HttpService) {
   }

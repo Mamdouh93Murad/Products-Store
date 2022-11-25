@@ -21,8 +21,10 @@ export class LoginComponent implements OnInit{
   ngOnInit() : void {
 
   }
+
+
+  // Authenticate User Credentials
   async login() : Promise<any> {
-    // this.userService.changeStatus()
     this.result = await this.client.auth(this.username, this.password)
     this.decoded = (this.helper.decodeToken(this.result['token']))
     if((this.result['username'] === this.decoded['username']) && (this.result['password'] === this.decoded['password'])){
