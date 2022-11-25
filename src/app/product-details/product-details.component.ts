@@ -8,7 +8,9 @@ import { HttpService } from '../http.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  constructor(private route : ActivatedRoute, private client : HttpService){}
+  constructor(private route : ActivatedRoute, private client : HttpService){
+
+  }
   product : any
   id : any
   ngOnInit(): void {

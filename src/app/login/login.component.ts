@@ -1,29 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { user } from '../interfaces/users';
 import { UsersService } from '../users.service';
 import { ProductsService } from '../products.service';
 import { Router } from '@angular/router';
+import { HttpService } from '../http.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
-  user : user
-  users : any[] = []
-  constructor(private userService : UsersService, private route : Router, private productService : ProductsService){
-    this.user = {
-      email : '',
-      password : ''
-    }
+  username : string = ''
+  password : string = ''
+  result : object = {}
+  decoded : object = {}
+  helper = new JwtHelperService()
+  constructor( private route : Router,  private client : HttpService){
 
   }
   ngOnInit() : void {
 
   }
-  login() : void {
+  async login() : Promise<any> {
     // this.userService.changeStatus()
-    this.route.navigate(['products'])
+    this.result = await this.client.auth(this.username, this.password)
+    this.decoded = (this.helper.decodeToken(this.result['token']))
+    if((this.result['username'] === this.decoded['username']) && (this.result['password'] === this.decoded['password'])){
+      this.route.navigate(['products'])
+    }
   }
 
 }

@@ -35,4 +35,26 @@ export class HttpService {
   getProduct(id : string){
     return this.client.get(`https://dummyjson.com/products/${id}`)
   }
+
+  async auth(username : string, password : string) : Promise<any>{
+  let result: any
+  await fetch('https://dummyjson.com/auth/login', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+
+    username: username,
+    password: password,
+    // expiresInMins: 60, // optional
+  })
+  }).then(res =>
+    res.json())
+    .then(data => {
+      result = data;
+     })
+  .then(() => {
+    console.log(result)})
+  return result
 }
+}
+

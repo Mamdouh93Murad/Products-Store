@@ -7,7 +7,7 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent  implements OnInit {
-  products : any [] = []
+  products : object [] = []
   categories : string[] = ["smartphones",
   "laptops",
   "fragrances",
@@ -33,7 +33,6 @@ export class ProductListComponent  implements OnInit {
   list : number[] = []
   constructor(public productService : ProductsService, private client : HttpService){
     this.products = this.productService.products
-
   }
 
   ngOnInit() : void {

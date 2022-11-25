@@ -5,14 +5,14 @@
     <caption>Welcome back! Please Enter your details</caption>
     <form #Form="ngForm" (ngSubmit)="login()" style="display : flex; flex-direction: column">
       <label>Email</label>
-      <input type="text" name="name" #Name="ngModel" required  appForbiddenName="username" placeholder="Email" [(ngModel)]="user.email" style="text-align : center;">
+      <input type="text" name="name" #Name="ngModel" required  appForbiddenName="username" placeholder="Username" [(ngModel)]="username" style="text-align : center;">
         <div *ngIf="Name.invalid && Name.dirty" >
           <div *ngIf="Name.errors?.['required']" style="text-align: center;">
-            Please provide your  Email
+            Please provide your  Username
           </div>
         </div>
         <label>Password</label>
-      <input type="password" name="password" required minlength="5" #Address="ngModel" [(ngModel)]="user.password" placeholder="Password" style="text-align : center;">
+      <input type="password" name="password" required minlength="5" #Address="ngModel" [(ngModel)]="password" placeholder="Password" style="text-align : center;">
         <div *ngIf="Address.invalid && Address.dirty">
           <div *ngIf="Address.errors?.['required']" style="text-align: center;">
             Please provide your Password

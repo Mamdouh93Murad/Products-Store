@@ -8,7 +8,7 @@ export class UsersService {
   logged : boolean = true
   constructor(private client : HttpService) {
     this.client.getUsers().subscribe(u => {
-      this.users = u
+      this.users = u['users']
    })
 
   }

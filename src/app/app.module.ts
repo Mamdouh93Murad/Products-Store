@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductComponent } from './product/product.component'
-
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
