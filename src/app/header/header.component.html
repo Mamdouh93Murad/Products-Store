@@ -10,13 +10,13 @@
 <div *ngIf="this.userService.logged">
     <nav style="display : flex; justify-content: space-evenly;" >
     <div style="display : flex; justify-content : space-evenly; min-width: 30%;">
-        <a mat-list-item routerLink="/products" >Home </a>
-        <a mat-list-item routerLink="/products" > Home </a>
+        <a  routerLink="/products" >Home </a>
+        <a  routerLink="/products" > Home </a>
     </div>
     <div style="display : flex; justify-content : space-evenly; min-width: 30%; margin-left: 40%;">
         <input matInput placeholder="Search" [(ngModel)]="searchString" style="max-height : 50%; margin-top : 10px; min-width: 50%;" (keyup.enter)="search()" (ngModelChange)="search()">
-        <a mat-list-item routerLink="/cart" style="text-align : center;">Cart</a>
-        <a mat-list-item routerLink="/account" style="text-align : center;">Account </a>
+        <a  routerLink="/cart" style="text-align : center;">Cart</a>
+        <a  routerLink="/account" style="text-align : center;">Account </a>
     </div>
   </nav>
   </div>
