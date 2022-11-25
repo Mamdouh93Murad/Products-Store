@@ -70,5 +70,9 @@ export class HttpService {
   getCart(id : string | number) : Observable<any>{
     return this.client.get(`https://dummyjson.com/users/${id}/carts`)
   }
+
+  getCategories() : Observable<any>{
+    return this.client.get(`https://dummyjson.com/products/categories`)
+  }
 }
 

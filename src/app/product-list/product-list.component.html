@@ -4,19 +4,19 @@
 
   <div style=" min-width : 15%;  margin-left: 15%; margin-top: 2%;" class="container">
     <ul class="list-group list-group-light" style=" list-style-type: none;  padding-top: 25%; padding-right:50px; padding-bottom: 50px;">
-      <li class="list-group-item" *ngFor="let category of categories">
+      <li class="list-group-item" *ngFor="let category of categories; let i = index">
         <div *ngIf="!filterCategory">
         <input  class="form-check-input me-1" type="checkbox"   (click)="filter(category)"/>
-        {{category}}
+        {{category}} ({{num_products[i]}})
         </div>
         <div *ngIf="filterCategory">
           <div *ngIf="filterCategory === category">
           <input  class="form-check-input me-1" type="checkbox"  checked="true" disabled (click)="filter(category)"/>
-          {{category}}
+          {{category}}{{num_products[i]}}
           </div>
           <div *ngIf="filterCategory !== category">
             <input  class="form-check-input me-1" type="checkbox" (click)="filter(category)"/>
-            {{category}}
+            {{category}}{{num_products[i]}}
             </div>
           </div>
       </li>

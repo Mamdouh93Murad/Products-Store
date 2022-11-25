@@ -17,6 +17,10 @@ export class ProductsService {
   searchString : string = ''
   // Pages Required for pagination
   pages : number = 0
+  // Array to Contain Names of All Categories
+  categories : string[] = []
+  // Array to Contain Number of Products Per Category
+  num_products : number[] = []
   constructor(private client : HttpService, private userService : UsersService) {
     let total : number = 0
 
@@ -24,13 +28,24 @@ export class ProductsService {
       this.products = p['products']
    })
 
-   this.client.getAllProducts().subscribe(p => {
+   this.client.getAllProducts().subscribe(a => {
     // Total Items in Product List
-    total = p['total']
+    total = a['total']
     // Calculate number of pages required
     // Total Number of Products / 9 (page limit) + 1
     this.pages = Math.round((total / 9) + 1)
  })
+ this.client.getCategories().subscribe(c => {
+  this.categories = c
+  let list
+  for(let i = 0; i < this.categories.length; i++)
+  {
+    this.client.getFiltered(this.categories[i]).subscribe(l => {
+      list = l['products']
+      this.num_products.push(this.products.length)
+  })
+  }
+  })
 
-}
+  }
 }

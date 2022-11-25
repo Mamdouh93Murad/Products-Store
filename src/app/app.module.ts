@@ -14,6 +14,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductComponent } from './product/product.component'
 import { JwtModule } from '@auth0/angular-jwt';
+import {MatCardModule} from '@angular/material/card'
+import {MatSidenavModule} from '@angular/material/sidenav'
+import {MatBadgeModule} from '@angular/material/badge'
+import {MatListModule} from '@angular/material/list'
+import {MatIconModule} from '@angular/material/icon';
+import {  MatButtonModule } from '@angular/material/button';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -24,7 +31,8 @@ import { JwtModule } from '@auth0/angular-jwt';
     HeaderComponent,
     FooterComponent,
     ProductDetailsComponent,
-    ProductComponent
+    ProductComponent,
+
 
   ],
   imports: [
@@ -33,7 +41,14 @@ import { JwtModule } from '@auth0/angular-jwt';
     BrowserAnimationsModule,
     FormsModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatGridListModule,
+    MatIconModule,
+    MatListModule,
+    MatBadgeModule,
+    MatSidenavModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

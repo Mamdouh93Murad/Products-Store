@@ -8,31 +8,15 @@ import { ProductsService } from '../products.service';
 })
 export class ProductListComponent  implements OnInit {
   products : object [] = []
-  categories : string[] = ["smartphones",
-  "laptops",
-  "fragrances",
-  "skincare",
-  "groceries",
-  "home-decoration",
-  "furniture",
-  "tops",
-  "womens-dresses",
-  "womens-shoes",
-  "mens-shirts",
-  "mens-shoes",
-  "mens-watches",
-  "womens-watches",
-  "womens-bags",
-  "womens-jewellery",
-  "sunglasses",
-  "automotive",
-  "motorcycle",
-  "lighting"]
+  categories : string[] = []
+  num_products : number[] = []
   page : number = 1;
   filterCategory : string = ''
   list : number[] = []
   constructor(public productService : ProductsService, private client : HttpService){
     this.products = this.productService.products
+    this.categories = this.productService.categories
+    this.num_products = this.productService.num_products
   }
 
   ngOnInit() : void {
