@@ -82,16 +82,23 @@
       </li>
     </ul>
   </div>
-  <div
-    style="min-height: 70vh; min-width: 50%; max-width: 60%; flex-shrink: 0"
-    class="parent"
-  >
-    <div *ngFor="let product of products">
-      <app-product [product]="product"></app-product>
+  <div *ngIf="products">
+    <div
+      style="min-height: 70vh; min-width: 50%; max-width: 60%; flex-shrink: 0"
+      class="parent"
+    >
+      <div *ngFor="let product of products">
+        <app-product [product]="product"></app-product>
+      </div>
     </div>
   </div>
 </div>
-
+<div
+  *ngIf="products.length === 0"
+  style="position: relative; top: -600px; left: 50%"
+>
+  No Search Result
+</div>
 <ul style="display: flex; list-style-type: none; gap: 15%; margin-left: 45%">
   <li>
     <button
