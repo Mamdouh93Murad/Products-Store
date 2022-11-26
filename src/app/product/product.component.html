@@ -17,8 +17,8 @@
   </p>
   <div style="margin-left: 20px">
     <div>
-      <p style="margin-left: 5px; font-size: 20px">
-        <b>{{ product.title }}</b>
+      <p style="margin-left: 5px; font-size: 14px; font-weight: bold;">
+        {{ product.title }}
       </p>
       <p style="margin-left: 5px" class="cut-text">{{ product.description }}</p>
       <s class="price"
@@ -45,19 +45,22 @@
       <igc-rating
         value="{{ product.rating }}"
         max="1"
-        style="color: #f4b000; display: inline; margin-left: 190px"
+        style="color: #f4b000; display: inline; margin-left: 65%"
       ></igc-rating>
       <p style="color: #f4b000">{{ product.rating }}</p>
     </div>
     <button
       type="submit"
-      mat-flat-button
+
       [disabled]="false"
       style="
         margin-top: 10px;
         margin-left: 20px;
         background-color: #56d9d9;
-        width: 250px;
+        width: 80%;
+        height : 45px;
+        border: 0;
+        border-radius: 5px;
       "
     >
       Add to Cart
