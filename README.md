@@ -8,7 +8,7 @@ It's built by using Angular, HTML, CSS and Angular Material.
 The Data used is from [dummyjson](https://dummyjson.com)
 
 ## Basic Info
-
+    Dummy User Info to Test Application :     username: kminchelle, password: 0lelplR
 -   use  `npm install`  in root folder to install the project dependencies and modules
 -   use  `ng serve`  to get the project working and starting on  `localhost:4200`  `ng serve --port xxxx`  can be used to specify port number
 
