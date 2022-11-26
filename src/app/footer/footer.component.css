@@ -1,13 +1,12 @@
-.container{
-  display:flex;
+.container {
+  display: flex;
   justify-content: space-around;
-   gap: 60%;
+  gap: 60%;
 }
 
-.text{
-
-  display:block;
-   min-height : 90px;
-    margin-top: 70px;
-     color: white;
+.text {
+  display: block;
+  min-height: 90px;
+  margin-top: 70px;
+  color: white;
 }

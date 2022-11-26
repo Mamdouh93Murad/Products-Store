@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     private userService: UsersService,
     private route: Router,
     private client: HttpService,
-    private productService : ProductsService
+    private productService: ProductsService
   ) {}
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   ngOnInit(): void {}

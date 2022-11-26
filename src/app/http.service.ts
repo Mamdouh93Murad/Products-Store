@@ -32,7 +32,7 @@ export class HttpService {
   // Retrieve Product that Match Search Query
   getSearch(str: string): Observable<object> {
     return this.client.get('https://dummyjson.com/products/search?', {
-      params: { q : str }
+      params: { q: str }
     })
   }
 

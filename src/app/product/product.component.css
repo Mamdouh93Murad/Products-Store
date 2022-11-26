@@ -1,14 +1,12 @@
-.container{
-overflow: hidden;
-border-radius: 25px;
-border: 1px solid rgb(189, 179, 179);
-width: 70%;
-height: 80%;
-margin-left: 5%;
-margin-top: 10%;
-
+.container {
+  overflow: hidden;
+  border-radius: 25px;
+  border: 1px solid rgb(189, 179, 179);
+  width: 70%;
+  height: 80%;
+  margin-left: 5%;
+  margin-top: 10%;
 }
-
 
 img.pointer {
   cursor: pointer;

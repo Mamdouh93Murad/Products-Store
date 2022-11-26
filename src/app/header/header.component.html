@@ -1,22 +1,36 @@
-
- <!-- Render Header if Logged out -->
-<div *ngIf="!this.userService.logged" style="min-height:1vh">
-  <div style="margin-top : 1%"  class="container1">
-    <a  routerLink="/" style="margin-left : 5%;" class="header" > Home </a>
-    <a   routerLink="/" class="header">Login</a>
-
+<!-- Render Header if Logged out -->
+<div *ngIf="!this.userService.logged" style="min-height: 1vh">
+  <div style="margin-top: 1%" class="container1">
+    <a routerLink="/" style="margin-left: 5%" class="header"> Home </a>
+    <a routerLink="/" class="header">Login</a>
   </div>
 </div>
 <!-- Render Header if Logged in -->
 <div *ngIf="this.userService.logged">
-    <nav class="container2" >
-    <div style=" min-width: 30%; margin-top: 1%;" class="'container2">
-        <a  routerLink="/products"  class="link" style="margin-left:50px">Home </a>
+  <nav class="container2">
+    <div style="min-width: 30%; margin-top: 1%" class="'container2">
+      <a routerLink="/products" class="link" style="margin-left: 50px">Home </a>
     </div>
-    <div style=" min-width: 30%; margin-left: 40%; margin-top: 1%;" class="container2">
-        <input matInput placeholder="Search" [(ngModel)]="searchString" style="max-height : 50%; margin-top : 10px; min-width: 50%;" (keyup.enter)="search()" (ngModelChange)="search()">
-        <mat-icon aria-hidden="false" matBadge='{{this.productService.total_cart}}' [ngStyle]="{'color' : '#97a1b2'}" aria-label="Example home icon" fontIcon="add_shopping_cart"></mat-icon>
-        <a  routerLink="/account" class="link">Account </a>
+    <div
+      style="min-width: 30%; margin-left: 40%; margin-top: 1%"
+      class="container2"
+    >
+      <input
+        matInput
+        placeholder="Search"
+        [(ngModel)]="searchString"
+        style="max-height: 50%; margin-top: 10px; min-width: 50%"
+        (keyup.enter)="search()"
+        (ngModelChange)="search()"
+      />
+      <mat-icon
+        aria-hidden="false"
+        matBadge="{{ this.productService.total_cart }}"
+        [ngStyle]="{ color: '#97a1b2' }"
+        aria-label="Example home icon"
+        fontIcon="add_shopping_cart"
+      ></mat-icon>
+      <a routerLink="/account" class="link">Account </a>
     </div>
   </nav>
-  </div>
+</div>

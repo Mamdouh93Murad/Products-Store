@@ -18,10 +18,7 @@ export class HeaderComponent implements OnInit {
     private client: HttpService
   ) {}
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 
   // Initiate Search Process by forcing Service and Component to detect change
   search() {

@@ -1,31 +1,69 @@
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    margin-top: 10%;
+  "
+>
+  <h2 style="text-align: center">Log in to Your account</h2>
+  <caption>
+    Welcome back! Please Enter your details
+  </caption>
+  <form
+    #Form="ngForm"
+    (ngSubmit)="login()"
+    style="
+      display: flex;
+      flex-direction: column;
+      margin-left: 25%;
+      margin-top: 10%;
+    "
+  >
+    <label>Username</label>
+    <input
+      type="text"
+      name="name"
+      #Name="ngModel"
+      required
+      appForbiddenName="username"
+      placeholder="Username"
+      [(ngModel)]="username"
+      class="input"
+    />
+    <div *ngIf="Name.invalid && Name.dirty">
+      <div *ngIf="Name.errors?.['required']" style="text-align: center">
+        Please provide your Username
+      </div>
+    </div>
+    <label>Password</label>
+    <input
+      type="password"
+      name="password"
+      required
+      minlength="5"
+      #Address="ngModel"
+      [(ngModel)]="password"
+      placeholder="Password"
+      class="input"
+    />
+    <div *ngIf="Address.invalid && Address.dirty">
+      <div *ngIf="Address.errors?.['required']" style="text-align: center">
+        Please provide your Password
+      </div>
+      <div *ngIf="Address.errors?.['minlength']" style="text-align: center">
+        The Password must be at least 5 characters.
+      </div>
+    </div>
 
-
-  <div style="display: flex; flex-direction: column; width:30%; margin : auto; margin-top:10%;">
-    <h2 style="text-align : center">Log in to Your account</h2>
-    <caption>Welcome back! Please Enter your details</caption>
-    <form #Form="ngForm" (ngSubmit)="login()" style="display : flex; flex-direction: column; margin-left : 25%; margin-top: 10%;">
-      <label>Username</label>
-      <input type="text" name="name" #Name="ngModel" required  appForbiddenName="username" placeholder="Username" [(ngModel)]="username" class="input">
-        <div *ngIf="Name.invalid && Name.dirty" >
-          <div *ngIf="Name.errors?.['required']" style="text-align: center;">
-            Please provide your  Username
-          </div>
-        </div>
-        <label>Password</label>
-      <input type="password" name="password" required minlength="5" #Address="ngModel" [(ngModel)]="password" placeholder="Password" class="input">
-        <div *ngIf="Address.invalid && Address.dirty">
-          <div *ngIf="Address.errors?.['required']" style="text-align: center;">
-            Please provide your Password
-          </div>
-          <div *ngIf="Address.errors?.['minlength']" style="text-align: center;">
-            The Password must be at least 5 characters.
-          </div>
-        </div>
-
-      <button type="submit"  mat-flat-button  [disabled]="false"  style="margin-top:1%; max-width: 71%; background-color: #56d9d9;">Sign in</button>
-    </form>
-  </div>
-
-
-
-
+    <button
+      type="submit"
+      mat-flat-button
+      [disabled]="false"
+      style="margin-top: 1%; max-width: 71%; background-color: #56d9d9"
+    >
+      Sign in
+    </button>
+  </form>
+</div>
