@@ -1,22 +1,22 @@
 
  <!-- Render Header if Logged out -->
-<div *ngIf="!this.userService.logged" style="min-height:5vh">
-  <div style="display : flex; justify-content: space-around; margin-top : 1%" >
-    <a  routerLink="/" style="margin-left : 5%" > Home </a>
-    <button   style="margin-right:5%">Login</button>
+<div *ngIf="!this.userService.logged" style="min-height:1vh">
+  <div style="margin-top : 1%"  class="container1">
+    <a  routerLink="/" style="margin-left : 5%;" class="header" > Home </a>
+    <a   routerLink="/" class="header">Login</a>
+
   </div>
 </div>
 <!-- Render Header if Logged in -->
 <div *ngIf="this.userService.logged">
-    <nav style="display : flex; justify-content: space-evenly;" >
-    <div style="display : flex; justify-content : space-evenly; min-width: 30%;">
-        <a  routerLink="/products" >Home </a>
-        <a  routerLink="/products" > Home </a>
+    <nav class="container2" >
+    <div style=" min-width: 30%; margin-top: 1%;" class="'container2">
+        <a  routerLink="/products"  class="link" style="margin-left:50px">Home </a>
     </div>
-    <div style="display : flex; justify-content : space-evenly; min-width: 30%; margin-left: 40%;">
+    <div style=" min-width: 30%; margin-left: 40%; margin-top: 1%;" class="container2">
         <input matInput placeholder="Search" [(ngModel)]="searchString" style="max-height : 50%; margin-top : 10px; min-width: 50%;" (keyup.enter)="search()" (ngModelChange)="search()">
-        <a  routerLink="/cart" style="text-align : center;">Cart</a>
-        <a  routerLink="/account" style="text-align : center;">Account </a>
+        <mat-icon aria-hidden="false" matBadge='{{this.productService.total_cart}}' [ngStyle]="{'color' : '#97a1b2'}" aria-label="Example home icon" fontIcon="add_shopping_cart"></mat-icon>
+        <a  routerLink="/account" class="link">Account </a>
     </div>
   </nav>
   </div>

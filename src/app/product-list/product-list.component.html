@@ -1,27 +1,29 @@
 
  <h1 style="margin-left:15%; margin-top : 1%">Products</h1>
-<div style="display : flex;  min-height: 85vh; min-width: 20%; gap:1%">
+<div style="display : flex;  min-height: 85vh; min-width: 20%; gap:1%;">
 
-  <div style=" min-width : 15%;  margin-left: 15%; margin-top: 2%;" class="container">
-    <ul class="list-group list-group-light" style=" list-style-type: none;  padding-top: 25%; padding-right:50px; padding-bottom: 50px;">
+  <div style=" min-width : 15%;  margin-left: 15%; margin-top: 2%; padding-top: 50px" class="container">
+    <h2 *ngIf="filterCategory" style="display : inline; text-align: center; padding-left: 25px;">
+       Home / Products / {{filterCategory}}<h2 *ngIf="this.productService.searchString" style="display : inline; padding-right : 25px"> / {{this.productService.searchString}}</h2></h2>
+    <ul class="list-group list-group-light" style=" list-style-type: none;  padding-top: 5%; padding-right:50px; padding-bottom: 50px;">
       <li class="list-group-item" *ngFor="let category of categories; let i = index">
         <div *ngIf="!filterCategory">
-        <input  class="form-check-input me-1" type="checkbox"   (click)="filter(category)"/>
-        {{category}} ({{num_products[i]}})
+        <mat-checkbox  class="form-check-input me-1" type="checkbox"   (click)="filter(category)">{{category}} ({{num_products[i]}})</mat-checkbox>
+
         </div>
         <div *ngIf="filterCategory">
           <div *ngIf="filterCategory === category">
-          <input  class="form-check-input me-1" type="checkbox"  checked="true" disabled (click)="filter(category)"/>
-          {{category}}{{num_products[i]}}
+          <mat-checkbox  class="form-check-input me-1" type="checkbox"   checked="true" disabled (click)="filter(category)">{{category}}{{num_products[i]}}</mat-checkbox>
+
           </div>
           <div *ngIf="filterCategory !== category">
-            <input  class="form-check-input me-1" type="checkbox" (click)="filter(category)"/>
-            {{category}}{{num_products[i]}}
+            <mat-checkbox  class="form-check-input me-1" type="checkbox" (click)="filter(category)">{{category}}{{num_products[i]}}</mat-checkbox>
+
             </div>
           </div>
       </li>
       <li>
-        <button   style="margin-top: 5%; margin-left: 15%;" (click)="reset()">reset</button>
+        <button  mat-flat-button  class='button' rolo style="background-color: #56d9d9;" (click)="reset()">reset</button>
       </li>
 
     </ul>
@@ -33,15 +35,16 @@
   </div>
 </div>
 
-<ul style="display : flex; list-style-type : none; gap: 1%; margin-left : 35%">
+<ul style="display : flex; list-style-type : none; gap: 15%; margin-left : 40%">
   <li>
-    <button   style="margin-top: 5%; margin-left: 15%;" (click)="back()" [disabled]="page===1">&#8592;</button>
+    <button mat-flat-button  class='button'  style="background-color: #56d9d9;" (click)="back()" [disabled]="page===1">&#8592;</button>
   </li>
-  <li *ngFor="let number of list">
-    <button   style="margin-top: 5%; margin-left: 15%;" (click)="goTo(number)" [disabled]="number === this.page">{{number}}</button>
-  </li>
+  <!-- <li *ngFor="let number of list; let i = index">
+
+    <button mat-flat-button color="primary"  style="margin-top: 5%; margin-left: 15%;" (click)="goTo(number)" [disabled]="number === this.page">{{number}}</button>
+  </li> -->
   <li>
-    <button   style="margin-top: 5%; margin-left: 15%;" (click)="next()" [disabled]="this.page === this.productService.pages">&#8594;</button>
+    <button  mat-flat-button class='button'  (click)="next()" style="background-color: #56d9d9;" [disabled]="this.page === this.productService.pages">&#8594;</button>
   </li>
 </ul>
 

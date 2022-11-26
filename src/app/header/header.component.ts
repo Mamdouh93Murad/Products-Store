@@ -14,16 +14,14 @@ export class HeaderComponent implements OnInit {
   searchString = ''
   constructor(
     public userService: UsersService,
-    private productService: ProductsService,
+    public productService: ProductsService,
     private client: HttpService
   ) {}
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  ngOnInit() {}
+  ngOnInit() {
 
-  // Force Change Detection to Update Cart Count Badge
-  ngDoCheck() {
-    this.total = 0
   }
+
 
   // Initiate Search Process by forcing Service and Component to detect change
   search() {

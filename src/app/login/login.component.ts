@@ -3,6 +3,7 @@ import { UsersService } from '../users.service'
 import { Router } from '@angular/router'
 import { HttpService } from '../http.service'
 import { JwtHelperService } from '@auth0/angular-jwt'
+import { ProductsService } from '../products.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private userService: UsersService,
     private route: Router,
-    private client: HttpService
+    private client: HttpService,
+    private productService : ProductsService
   ) {}
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   ngOnInit(): void {}
@@ -31,6 +33,10 @@ export class LoginComponent implements OnInit {
       this.result['password'] === this.decoded['password']
     ) {
       this.userService.user_id = this.result['id']
+
+      this.client.getCart(this.userService.user_id).subscribe((c) => {
+        this.productService.total_cart = c['carts'].length
+      })
       this.route.navigate(['products'])
       this.userService.logged = !this.userService.logged
     }

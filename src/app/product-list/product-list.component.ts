@@ -32,11 +32,13 @@ export class ProductListComponent implements OnInit {
   reset() {
     this.products = this.productService.products
     this.filterCategory = ''
+    this.productService.searchString = ''
     this.productService.triggered = false
   }
 
   // Changes Product List to contain only selected category products
   filter(category: string) {
+    this.productService.searchString = ''
     this.filterCategory = category
     this.client.getFiltered(category).subscribe((f) => {
       this.products = f['products']
@@ -63,15 +65,15 @@ export class ProductListComponent implements OnInit {
     })
   }
   // Get Set of Products According to Particular Pagination Page
-  goTo(number: number) {
-    this.page = number
-    if (this.page === 1) {
-      this.products = this.productService.products
-    }
-    this.client.getProducts(this.page - 1).subscribe((f) => {
-      this.products = f['products']
-    })
-  }
+  // goTo(number: number) {
+  //   this.page = number
+  //   if (this.page === 1) {
+  //     this.products = this.productService.products
+  //   }
+  //   this.client.getProducts(this.page - 1).subscribe((f) => {
+  //     this.products = f['products']
+  //   })
+  // }
   // Get Set of Products According to Previous Pagination Page
   back() {
     if (this.page > 1) {

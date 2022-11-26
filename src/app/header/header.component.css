@@ -1,0 +1,22 @@
+.header {
+  margin-right:5%;
+   text-decoration: none;
+    margin-top : 10px;
+   color : #97a1b2
+  }
+
+
+.link{
+  text-decoration: none;
+  color: #97a1b2;
+}
+
+.container1{
+  display : flex;
+  justify-content: space-between;
+}
+
+.container2{
+  display : flex;
+  justify-content : space-evenly;
+}
