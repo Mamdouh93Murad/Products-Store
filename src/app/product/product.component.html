@@ -1,15 +1,66 @@
 <div class="container">
   <img
     src="{{ product.thumbnail }}"
-    style="
-      height: 50%;
-      width: 100%;
-      object-fit: fill;
-      margin: 0 0 0 0;
-      padding: 0 0 0 0;
-      max-height: 50%;
-    "
     (click)="navigate(product.id)"
     class="pointer"
   />
+  <p
+    style="
+      background-color: #56d9d9;
+      max-width: 75px;
+      position: relative;
+      top: -37%;
+      left: 5%;
+    "
+  >
+    <b style="padding-left: 15px">-{{ product.discountPercentage }}%</b>
+  </p>
+  <div style="margin-left: 20px">
+    <div>
+      <p style="margin-left: 5px; font-size: 20px">
+        <b>{{ product.title }}</b>
+      </p>
+      <p style="margin-left: 5px" class="cut-text">{{ product.description }}</p>
+      <s class="price"
+        ><b>{{ product.price }}</b></s
+      >
+      <s class="price">USD</s>
+      <h3 class="price">
+        <b>{{ sale }}</b>
+      </h3>
+      <p class="price">USD</p>
+    </div>
+    <ul style="list-style-type: none; margin-left: -30px">
+      <li>
+        Brand : <b>{{ product.brand }}</b>
+      </li>
+      <li>
+        Category : <b>{{ product.category }}</b>
+      </li>
+      <li>
+        Stock : <b>{{ product.stock }}</b>
+      </li>
+    </ul>
+    <div style="display: flex; margin-top: 20px">
+      <igc-rating
+        value="{{ product.rating }}"
+        max="1"
+        style="color: #f4b000; display: inline; margin-left: 250px"
+      ></igc-rating>
+      <p style="color: #f4b000">{{ product.rating }}</p>
+    </div>
+    <button
+      type="submit"
+      mat-flat-button
+      [disabled]="false"
+      style="
+        margin-top: 10px;
+        margin-left: 30px;
+        background-color: #56d9d9;
+        width: 250px;
+      "
+    >
+      Add to Cart
+    </button>
+  </div>
 </div>

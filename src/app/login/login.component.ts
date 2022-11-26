@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
 
   // Authenticate User Credentials
   async login(): Promise<void> {
+    this.route.navigate(['products'])
     this.result = await this.client.auth(this.username, this.password)
     this.decoded = this.helper.decodeToken(this.result['token'])
     if (

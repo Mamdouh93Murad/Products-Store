@@ -9,13 +9,18 @@ import { ProductsService } from '../products.service'
 export class ProductComponent implements OnInit {
   @Input() product: any
   inCart = false
+  sale = 0
   constructor(
     private productService: ProductsService,
     private router: Router
   ) {}
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.sale = Math.round(
+      this.product.price - this.product.price / this.product.discountPercentage
+    )
+  }
 
   // Navigate to Particular Product URL
   navigate(id: any) {

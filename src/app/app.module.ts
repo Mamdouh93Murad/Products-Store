@@ -22,7 +22,10 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatGridListModule } from '@angular/material/grid-list'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatCheckboxModule } from '@angular/material/checkbox'
-
+import { StarRatingModule } from 'angular-star-rating'
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
+import { defineComponents, IgcRatingComponent } from 'igniteui-webcomponents'
+defineComponents(IgcRatingComponent)
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,8 +52,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
     MatSidenavModule,
     MatCardModule,
     MatPaginatorModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    StarRatingModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -38,7 +38,6 @@ export class ProductListComponent implements OnInit {
 
   // Changes Product List to contain only selected category products
   filter(category: string) {
-    this.productService.searchString = ''
     this.filterCategory = category
     this.client.getFiltered(category).subscribe((f) => {
       this.products = f['products']
