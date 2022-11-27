@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import { HttpService } from '../http.service'
-import { ProductsService } from '../products.service'
-import { UsersService } from '../users.service'
+import { HttpService } from '../services/http.service'
+import { ProductsService } from '../services/products.service'
+import { UsersService } from '../services/users.service'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

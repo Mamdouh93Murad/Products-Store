@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core'
-import { UsersService } from '../users.service'
+import { UsersService } from '../services/users.service'
 import { Router } from '@angular/router'
-import { HttpService } from '../http.service'
+import { HttpService } from '../services/http.service'
 import { JwtHelperService } from '@auth0/angular-jwt'
-import { ProductsService } from '../products.service'
+import { ProductsService } from '../services/products.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
