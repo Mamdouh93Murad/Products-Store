@@ -33,6 +33,6 @@ The Application is built using set of  **components**  and  **services**  which 
 
 The  **Services**  are made up of three.
 
--   **HTTP**  Service which retrieves Data from The JSON Files.
+-   **HTTP**  Service which retrieves Data from The API.
 -   **UserStore**  Service which handles the application functions such as Login, Signup and  User Data Details.
 -   **ProductStore**  Service which handles the application functions such as Product List Retrieval, Filtering by Category, Search Queries..
